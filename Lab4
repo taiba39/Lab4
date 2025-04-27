@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+class Person {
+    String sname;
+    int age;
+
+    // Constructor
+    Person(String name, int age) {
+        this.sname = name;
+        this.age = age;
+    }
+
+    // Display method
+    void display() {
+        System.out.println("Name is: " + sname + " Age is: " + age);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Taking input for number of persons
+        System.out.println("Enter the number of persons:");
+        int n = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        // Creating an array of Person objects
+        Person[] persons = new Person[n];
+
+        // Taking input for each person
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter the name of a person " + (i + 1) + ":");
+            String name = scanner.nextLine();
+
+            System.out.print("Enter the age of a person " + (i + 1) + ":");
+            int age = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            // Creating and storing object in array
+            persons[i] = new Person(name, age);
+        }
+
+        System.out.println("\n List of Person:");
+        // Displaying the stored data
+        for (int i = 0; i < n; i++) {
+            persons[i].display();
+        }
+
+        scanner.close();
+    }
+}
